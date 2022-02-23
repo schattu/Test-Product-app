@@ -1,0 +1,30 @@
+.view-container {
+  padding: 20px;
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-table {
+  margin-top: 20px;
+  border: none;
+  th {
+    border-top: solid 1px #ccc;
+    background-color: #efefef;
+    padding: 10px;
+    border-left: solid 1px #ccc;
+    &:last-child {
+      border-right: solid 1px #ccc;
+    }
+  }
+
+  td {
+    padding: 10px;
+    border-left: solid 1px #ccc;
+    border-bottom: solid 1px #ccc;
+    &:last-child {
+      border-right: solid 1px #ccc;
+    }
+  }
+}

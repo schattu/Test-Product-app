@@ -1,0 +1,40 @@
+<form [formGroup]="productForm" class="product-create-form">
+  <h1 *ngIf="!isUpdate">Create Product</h1>
+  <h1 *ngIf="isUpdate">Update Product</h1>
+  <mat-form-field appearance="fill">
+    <mat-label>Product name</mat-label>
+    <input type="text" matInput formControlName="name" placeholder="Ex. abc" minlength="5" maxlength="10">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Category</mat-label>
+    <mat-select formControlName="category">
+      <mat-option *ngFor="let categorie of categories" [value]="categorie.value">
+        {{categorie.displayName}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Price</mat-label>
+    <input type="number" formControlName="price" matInput placeholder="Ex. 10">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Currency</mat-label>
+    <mat-select formControlName="currency">
+      <mat-option *ngFor="let curr of currencies" [value]="curr.value">
+        {{curr.displayName}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Quantity</mat-label>
+    <input type="number" formControlName="quantity" matInput placeholder="Ex. 10">
+  </mat-form-field>
+
+  <button *ngIf="!isUpdate" mat-raised-button color="primary" [disabled]="!productForm.valid" (click)="addProduct()">Create</button>
+  <button *ngIf="isUpdate" mat-raised-button color="primary" [disabled]="!productForm.valid" (click)="updateProduct()">Update</button>
+  <div style="text-align: center;">
+    <a href="javascript:;" (click)="backtoList()">Back to list</a>
+  </div>
+  
+</form>
+
